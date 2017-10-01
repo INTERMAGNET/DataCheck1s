@@ -1,0 +1,19 @@
+INTERMAGNET 1-second data checking programme
+
+Wed Feb 10 18:23:15 GMT 2016
+Observatory code: tst
+Year: 2014
+Folder for data: c:\data\DataCheck1sTestData\NetbeansTestDataSet
+Filter: INTERMAGNET standard 91-point Gaussian
+
+Checking error messages
+Not all second data available: 2 of 367 IAGA 2002 files found.
+Not all minute data available: 1 of 12 IAF files found.
+
+Filtered second - minute differences over threshold of 5.0 nT or 1.0 min. arc
+2014-01-01,H: 00:00:00 (gap in 1-sec but not in 1-min data)
+2014-01-01,D: 00:00:00 (gap in 1-sec but not in 1-min data)
+2014-01-01,Z: 00:00:00 (gap in 1-sec but not in 1-min data)
+
+Second 1st differences over threshold of 2.0 nT or 0.5 min. arc
+No difference values exceed the threshold
