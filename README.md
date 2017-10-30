@@ -1,11 +1,13 @@
 # Software project description
 
-Project Name:            | DataCheck1s
-Main developer(s):       | Simon Flower
-Main user(s):            | Simon Flower (on behalf of INTERMAGNET)
-Computer language(s):    | Java
-Development environment: | Netbeans
-BGS team:                | Geomagnetism
+|  |  |
+|------------------------- | ----------- |
+| Project Name:            | DataCheck1s |
+| Main developer(s):       | Simon Flower |
+| Main user(s):            | Simon Flower (on behalf of INTERMAGNET) |
+| Computer language(s):    | Java |
+| Development environment: | Netbeans |
+| BGS team:                | Geomagnetism |
 
 
 ## Description
