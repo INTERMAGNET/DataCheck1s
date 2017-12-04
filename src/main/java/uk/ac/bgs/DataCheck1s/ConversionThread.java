@@ -343,12 +343,14 @@ public class ConversionThread extends Thread
             try
             {
                 if (element_code == GeomagAbsoluteValue.COMPONENT_UNKNOWN) return "Missing essential geomagnetic element (" + count+1 + ")";
+                String timestamp_name = "GeomagneticVectorTimes";
+                if (count >= 3) timestamp_name="GeomagneticScalarTimes";
                 elements [count] = new ImagCDFVariable (new IMCDFVariableType (IMCDFVariableType.VariableTypeCode.GeomagneticFieldElement),
                                                         "Geomagnetic Field Element " + element_name, 
                                                         ImagCDFLowLevel.getValidMaxMin(element_name, false),
                                                         ImagCDFLowLevel.getValidMaxMin(element_name, true),
                                                         ImagCDFLowLevel.getUnits(element_name),
-                                                        ImagCDF.MISSING_DATA_VALUE, element_name, data.getData()[count], 0, n_samples);
+                                                        ImagCDF.MISSING_DATA_VALUE, timestamp_name, element_name, data.getData()[count], 0, n_samples);
             }
             catch (CDFException e)
             {
@@ -357,11 +359,17 @@ public class ConversionThread extends Thread
             }
         }
 
+        ImagCDFVariableTS time_stamps[];
         try
         {
-            vector_time_stamps = new ImagCDFVariableTS (data_start_cal.getTime(), data.getSamplePeriod(), n_samples, "GeomagneticVectorTimes");
-            if (elements.length <= 3) scalar_time_stamps = null;
-            else scalar_time_stamps = new ImagCDFVariableTS (data_start_cal.getTime(), data.getSamplePeriod(), n_samples, "GeomagneticScalarTimes");
+            if (elements.length <= 3)
+                time_stamps = new ImagCDFVariableTS[1];
+            else
+            {
+                time_stamps = new ImagCDFVariableTS [2];
+                time_stamps [1] = new ImagCDFVariableTS (data_start_cal.getTime(), data.getSamplePeriod(), n_samples, "GeomagneticScalarTimes");
+            }
+            time_stamps [0] = new ImagCDFVariableTS (data_start_cal.getTime(), data.getSamplePeriod(), n_samples, "GeomagneticVectorTimes");
         }
         catch (CDFException e)
         {
@@ -376,7 +384,7 @@ public class ConversionThread extends Thread
                                     data.getLatitude(), data.getLongitude(), data.getElevation(), data.getInstituteName(),
                                     data.getVectorSensorOrientation(), new IMCDFStandardLevel (IMCDFStandardLevel.StandardLevel.NONE), null, null, null,
                                     data.getSource(), data.getUniqueIdentifier(), data.getParentIdentifiers(), data.getReferenceLinks(),
-                                    elements, vector_time_stamps, scalar_time_stamps, null, null);
+                                    elements, null, time_stamps);
             cdf_filename = new ImagCDFFilename (imag_cdf, ImagCDFFilename.Case.LOWER);
             file = new File (out_folder, cdf_filename.getFilename());
             imag_cdf.write (file, compress, true);
