@@ -1,4 +1,4 @@
-Dumping cdf from "tst_20140101_000000_4.cdf"...
+Dumping cdf from "tst_20140101_000000_pt1s_4.cdf"...
 File Info
 =========================================
 CDF File:     tst_20140101_000000_pt1s_4.cdf
@@ -85,7 +85,7 @@ collected at <observatory name>. We thank <institute name>,
 for supporting its operation and INTERMAGNET for promoting high
 standards of magnetic observatory practice (www.intermagnet.org).
 "
-References (1 entry):
+ReferenceLinks (1 entry):
 	0 (CDF_CHAR/27): 	"http://www.intermagnet.org/"
 
 Variable Attributes (8 attributes)
