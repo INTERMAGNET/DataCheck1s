@@ -454,7 +454,7 @@ implements ActionListener, WindowListener, CheckingDisplayInterface
                         AutoplotInstance ap_instance = autoplot_connector.cullAutoplotInstances ();
                         try
                         {
-                            if (ap_instance == null) ap_instance = autoplot_connector.runAutoplot (new String [0], false, true);
+                            if (ap_instance == null) ap_instance = autoplot_connector.runAutoplot (new String [0], true);
                             ap_instance.loadIaga2002 (iaga_2002_file, true);
                         }
                         catch (IOException | ClassNotFoundException | NoSuchMethodException e)

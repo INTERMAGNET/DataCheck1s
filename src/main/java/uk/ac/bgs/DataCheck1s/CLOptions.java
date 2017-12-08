@@ -68,6 +68,7 @@ public class CLOptions
         filter_type = parser.accepts ("filter", "The type of filter to use to convert 1-second data to 1-minute values. Use 'Gaussian' for the standard 91-point INTERMAGNET filter, or 'Cosine' for a non-standard 61-point cosine filter").withRequiredArg().defaultsTo("Gaussian");
         log_file = parser.accepts ("log-file", "The path to the log file where errors and threshold exceptions will be written.").withRequiredArg().ofType(File.class).defaultsTo(new File ("DataCheck1s.log"));
         parser.accepts ("nocompress", "Turn off CDF compression.");
+        parser.accepts ("debug-ap-comms", "Display communications between this program and autoplot on stdout.");
         
         help = parser.accepts("help", "Print this help and exit.");
         perform_comparison = parser.accepts ("perform-comparison", "Automatically perform the comparison, write the log and exit.");
@@ -105,6 +106,7 @@ public class CLOptions
     public FilterType getFilterType () { return decoded_filter_type; }
     public File getLogFile() { return log_file.value(options); }
     public boolean isCompress() { return ! options.has ("nocmompress"); }
+    public boolean isDebugAPComms() { return options.has ("debug-ap-comms"); }
 
     public boolean isHelpRequested () { return options.has (help); }
     public boolean isPerformComparison () { return options.has (perform_comparison); }

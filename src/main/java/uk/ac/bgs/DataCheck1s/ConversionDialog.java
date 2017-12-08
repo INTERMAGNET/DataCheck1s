@@ -507,7 +507,7 @@ implements ActionListener, WindowListener, ConversionDisplayInterface
                     Cursor old_cursor = this.getCursor();
                     this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
                     AutoplotInstance ap_instance = autoplot_connector.cullAutoplotInstances ();
-                    if (ap_instance == null) ap_instance = autoplot_connector.runAutoplot ( new String [0], false, true);
+                    if (ap_instance == null) ap_instance = autoplot_connector.runAutoplot (new String [0], true);
                     ap_instance.loadImagCDF (cdf_file, true);
                     this.setCursor (old_cursor);
                 }

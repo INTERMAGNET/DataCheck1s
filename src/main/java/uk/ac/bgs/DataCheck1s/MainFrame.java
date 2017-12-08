@@ -72,7 +72,7 @@ implements WindowListener
         
         try
         {
-            autoplot_connector = new AutoplotConnector();
+            autoplot_connector = new AutoplotConnector(options.isDebugAPComms());
         }
         catch (IOException e)
         {
