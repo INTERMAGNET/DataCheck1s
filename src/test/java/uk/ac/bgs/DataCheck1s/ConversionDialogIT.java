@@ -86,6 +86,10 @@ public class ConversionDialogIT {
             try { Thread.sleep(100); }
             catch (InterruptedException e) { }
         }
+        if (pm.getNIOExceptions() > 0) {
+            for (int count=0; count<pm.getNIOExceptions()-1; count++)
+                System.out.println(pm.getIOException(count));
+        }
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         PrintStream ps = new PrintStream(baos);
         List<String> calculated_lines = readLines (new StringReader (pm.getStdoutData()));
