@@ -182,6 +182,7 @@ public class ConversionThread extends Thread
                 }
 
                 // write this month's data
+                System.out.println("---- System path: "+System.getProperty("java.library.path"));
                 if (write_month)
                 {
                     String errmsg = writeImagCDF (second_data);
