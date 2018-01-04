@@ -104,7 +104,9 @@ public class ConversionDialogIT {
             switch (count)
             {
                 case 0:     // name of CDF file
-                case 38:    // publication data
+                case 4:     // CDF version
+                case 7:     // Copyright years
+                case 38:    // Publication date
                     // don't check these lines
                     break;
                 default:
